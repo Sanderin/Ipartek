@@ -57,29 +57,38 @@ public class AppPerrera {
 
 	}// fin main
 
+	// cambiarPerro
 	private static void cambiarPerro() {
 		String nombre = "";
 		String nombreNuevo = "";
-
 		System.out.println("introduce el nombre del perro que quieres cambiar");
 		nombre = sc.nextLine();
 
 		System.out.println("introduce el nuevo nombre del perro");
 		nombreNuevo = sc.nextLine();
+
 		/*
 		 * recorremos la lista comprobando si el nombre introducido coincide con alguno
 		 * de la lista
 		 */
-		for (Perro perro : lista) {
-			String p = perro.getNombre();
+		if (!nombreNuevo.equals("")) {
 
-			// si el nombre coincide cambiamos el nombre del bicho
-			if (p.equalsIgnoreCase(nombre)) {
-				// lista.set(p, perro.setNombre(nombreNuevo));
-				break;
+			for (Perro perro : lista) {
+				String p = perro.getNombre();
+
+				// si el nombre coincide cambiamos el nombre del bicho
+				if (p.equalsIgnoreCase(nombre)) {
+					perro.setNombre(nombreNuevo);
+					break;
+				}
 			}
+
+		} else {
+			System.out.println("debes introducir un nombre nuevo");
+			System.out.println("");
 		}
-	}
+
+	}// fin cambiarPerro
 
 	// dar baja a un perro FUNCIONA
 	private static void darBaja() {
@@ -156,7 +165,7 @@ public class AppPerrera {
 		System.out.println(LISTAR + " - Lista de todos los perros");
 		System.out.println(CREAR + " - Crear un perro");
 		System.out.println(BAJA + " - Dar de baja un Perro");
-		System.out.println(CAMBIAR + " - Actualizar datos del perro");
+		System.out.println(CAMBIAR + " - Cambiar nombre del perro");
 		System.out.println("5 - Otros");
 		System.out.println("s - Salir");
 		System.out.println("************************************");
