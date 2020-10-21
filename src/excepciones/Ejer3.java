@@ -33,6 +33,12 @@ public class Ejer3
 				System.out.println("introduce un texto");
 				texto = sc.nextLine();
 				error = false;
+				if (texto == null)
+				{
+					System.out.println("no has introducido texto");
+					error = true;
+				}
+
 			} while (error);
 
 			do
