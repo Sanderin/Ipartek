@@ -5,8 +5,15 @@ import java.util.Scanner;
 
 import pojo.Perro;
 
+/**
+ * aplicacion para una perrera
+ * 
+ * @author Alexander Saiz
+ *
+ */
+
 public class AppPerrera {
-	// variables globales para esta Clase
+	// variables globales para esta Clase TODO hacer privadas
 
 	static Scanner sc = null; // datos introducidos por teclado
 	static ArrayList<Perro> lista = new ArrayList<Perro>(); // lista de perros

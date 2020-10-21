@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"apps"},{"l":"colecciones"},{"l":"condicionales"},{"l":"excepciones"},{"l":"ipartek"},{"l":"pojo"},{"l":"pojo.ejercicios"},{"l":"variables"}]
