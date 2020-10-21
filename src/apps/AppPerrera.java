@@ -18,7 +18,8 @@ public class AppPerrera {
 	static Scanner sc = null; // datos introducidos por teclado
 	static ArrayList<Perro> lista = new ArrayList<Perro>(); // lista de perros
 	static String opcion = ""; // opcion seleccionada en el menu por el usuario
-	static final String LISTAR = "1", CREAR = "2", BAJA = "3", CAMBIAR = "4", SALIR = "s"; // opciones del menu
+	static final String LISTAR = "1", CREAR = "2", BAJA = "3", CAMBIAR = "4", VACUNA = "5", SALIR = "s"; // opciones del
+																											// menu
 	static boolean salir = false;
 
 	// main TODO capturar excepciones
@@ -46,8 +47,8 @@ public class AppPerrera {
 			case CAMBIAR:
 				cambiarPerro();
 				break;
-			case "5":
-				System.out.println("Sin Terminar");
+			case VACUNA:
+				vacunados();
 				break;
 			case SALIR:
 				break;
@@ -63,6 +64,18 @@ public class AppPerrera {
 		sc.close();
 
 	}// fin main
+
+	private static void vacunados() {
+		for (Perro perro : lista) {
+			if (perro.isVacunado()) {
+				System.out.println("El perro " + perro.getNombre() + " esta vacunado");
+
+			} else {
+				System.out.println("El perro " + perro.getNombre() + " no esta vacunado");
+			}
+
+		}
+	}
 
 	// cambiarPerro
 	private static void cambiarPerro() {
@@ -173,7 +186,7 @@ public class AppPerrera {
 		System.out.println(CREAR + " - Crear un perro");
 		System.out.println(BAJA + " - Dar de baja un Perro");
 		System.out.println(CAMBIAR + " - Cambiar nombre del perro");
-		System.out.println("5 - Otros");
+		System.out.println(VACUNA + " - Comprobar si esta vacunado");
 		System.out.println("s - Salir");
 		System.out.println("************************************");
 
