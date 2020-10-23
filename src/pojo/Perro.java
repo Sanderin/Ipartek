@@ -2,6 +2,7 @@ package pojo;
 
 public class Perro {
 	// atributos
+	private int id;
 	private String nombre;
 	private String raza;
 	private float peso;

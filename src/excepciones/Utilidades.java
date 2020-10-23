@@ -1,21 +1,17 @@
 package excepciones;
 
-public class Utilidades
-{
+public class Utilidades {
 
-	static public char calcularLetraDni(String numeros) throws Exception
-	{
+	static public char calcularLetraDni(String numeros) throws Exception {
 
 		char letraDni[] = { 'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V',
 				'H', 'L', 'C', 'K', 'E' };
 
-		if (numeros == null)
-		{
+		if (numeros == null) {
 			throw new Exception("No puede ser null");
 		}
 
-		if (numeros.length() != 8)
-		{
+		if (numeros.length() != 8) {
 			throw new Exception("Los numeros de un dni son 8");
 		}
 
