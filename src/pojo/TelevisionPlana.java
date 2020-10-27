@@ -9,6 +9,13 @@ public class TelevisionPlana extends Television {
 		this.tipoPantalla = "plana";
 	}
 
+	// constructor sobreescrito con los atributos de electrodomesticos, television y
+	// los propios
+	public TelevisionPlana(String nombre, int precio, int pulgadas, String tipoPantalla) {
+		super(nombre);
+		this.tipoPantalla = tipoPantalla;
+	}
+
 	public String getTipoPantalla() {
 		return tipoPantalla;
 	}

@@ -10,6 +10,13 @@ public class Television extends Electrodomesticos {
 
 	}
 
+	// canstructor sobrescrito con los atributos del padre y los propios de esta
+	// clase
+	public Television(String nombre, int precio, int pulgadas) {
+		super(nombre);
+		this.pulgadas = pulgadas;
+	}
+
 	public int getPulgadas() {
 		return pulgadas;
 	}
