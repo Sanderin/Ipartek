@@ -146,7 +146,7 @@ public class AppPerrera {
 		raza = sc.nextLine();
 
 		if (!nombre.equals("") || !raza.equals("")) {
-			Perro p = new Perro();
+			Perro p = new Perro(nombre);
 			p.setNombre(nombre);
 			p.setRaza(raza);
 			lista.add(p);

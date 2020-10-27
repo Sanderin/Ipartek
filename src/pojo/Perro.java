@@ -9,8 +9,19 @@ public class Perro extends Mamifero {
 	private String historia;
 
 	// constructores
+
+	public Perro() {
+		super("sin nombre");
+		this.id = 0;
+		this.raza = "cruce";
+		this.peso = 0f;
+		this.vacunado = false;
+		this.historia = "";
+	}
+
 	public Perro(String nombre) {
-		super(nombre);
+		super("sin nombre");
+		this.id = 0;
 		this.raza = "cruce";
 		this.peso = 0f;
 		this.vacunado = false;
@@ -56,9 +67,18 @@ public class Perro extends Mamifero {
 		this.historia = historia;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	@Override
 	public String toString() {
-		return "Perro [nombre=" + getNombre() + "]";
+		return "Perro [id=" + id + ", raza=" + raza + ", peso=" + peso + ", vacunado=" + vacunado + ", historia="
+				+ historia + ", getNombre()=" + getNombre() + ", getPatas()=" + getPatas() + "]";
 	}
 
 }
