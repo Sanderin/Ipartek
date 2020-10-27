@@ -1,45 +1,23 @@
 package pojo;
 
-public class Perro {
+public class Perro extends Mamifero {
 	// atributos
 	private int id;
-	private String nombre;
 	private String raza;
 	private float peso;
 	private boolean vacunado;
 	private String historia;
 
 	// constructores
-	public Perro() {
-		super();
-		this.nombre = "sin nombre";
+	public Perro(String nombre) {
+		super(nombre);
 		this.raza = "cruce";
 		this.peso = 0f;
 		this.vacunado = false;
 		this.historia = "";
 	}
 
-	// constructor sobrecargado
-	public Perro(String nombre, String raza) {
-		this(); // llama al constructor por defecto, pulsar control + clic
-		this.nombre = nombre;
-		this.raza = raza;
-	}
-
-	public Perro(String nombre) {
-		this(); // llama al constructor por defecto, pulsar control + clic
-		this.nombre = nombre;
-	}
-
 //getters y setters
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
 
 	public String getRaza() {
 		return raza;
@@ -80,7 +58,7 @@ public class Perro {
 
 	@Override
 	public String toString() {
-		return "Perro [nombre=" + nombre + "]";
+		return "Perro [nombre=" + getNombre() + "]";
 	}
 
 }
