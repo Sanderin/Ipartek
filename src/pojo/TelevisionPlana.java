@@ -12,7 +12,8 @@ public class TelevisionPlana extends Television {
 	// constructor sobreescrito con los atributos de electrodomesticos, television y
 	// los propios
 	public TelevisionPlana(String nombre, int precio, int pulgadas, String tipoPantalla) {
-		super(nombre);
+		// el super debe llevar los atributos del padre, del abuelo etc
+		super(nombre, precio, pulgadas);
 		this.tipoPantalla = tipoPantalla;
 	}
 

@@ -55,12 +55,12 @@ public class Ejer2 {
 			System.out.println("introduce el tipo de pantalla");
 			tipoPantalla = sc.nextLine();
 
-			TelevisionPlana tv = new TelevisionPlana(nombre);
-			tv.setPrecio(precio);
-			tv.setPulgadas(pulgadas);
-			tv.setTipoPantalla(tipoPantalla);
-			// System.out.println(tv);
-			lista.add(tv);
+			/*
+			 * TelevisionPlana tv = new TelevisionPlana(nombre); tv.setPrecio(precio);
+			 * tv.setPulgadas(pulgadas); tv.setTipoPantalla(tipoPantalla); //
+			 * System.out.println(tv);
+			 */
+			lista.add(new TelevisionPlana(nombre, precio, pulgadas, tipoPantalla));
 
 			for (Electrodomesticos electrodomesticos : lista) {
 

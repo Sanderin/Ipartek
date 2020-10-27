@@ -13,7 +13,8 @@ public class Television extends Electrodomesticos {
 	// canstructor sobrescrito con los atributos del padre y los propios de esta
 	// clase
 	public Television(String nombre, int precio, int pulgadas) {
-		super(nombre);
+		// el super debe llevar los atributos del padre
+		super(nombre, precio);
 		this.pulgadas = pulgadas;
 	}
 
