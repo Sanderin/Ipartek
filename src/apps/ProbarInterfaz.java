@@ -4,6 +4,12 @@ import java.util.Scanner;
 
 import modelo.PruebaFunciones;
 
+/**
+ * 
+ * @author Alexander Saiz
+ *
+ */
+
 public class ProbarInterfaz {
 
 	public static void main(String[] args) throws Exception {

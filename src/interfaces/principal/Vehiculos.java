@@ -2,6 +2,12 @@ package interfaces.principal;
 
 import interfaces.interfaces.IVehiculo;
 
+/**
+ * 
+ * @author Alexander Saiz
+ *
+ */
+
 public class Vehiculos implements IVehiculo {
 
 	public static void main(String[] args) {

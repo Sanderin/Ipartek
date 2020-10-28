@@ -2,6 +2,12 @@ package interfaces.clases;
 
 import interfaces.interfaces.IVehiculo;
 
+/**
+ * 
+ * @author Alexander Saiz
+ *
+ */
+
 public class Patinete implements IVehiculo {
 
 	int velocidadActual = 0;

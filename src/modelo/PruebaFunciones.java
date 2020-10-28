@@ -4,6 +4,12 @@ import java.util.Scanner;
 
 import pojo.Serie;
 
+/**
+ * 
+ * @author Alexander Saiz
+ *
+ */
+
 public class PruebaFunciones implements IFunciones {
 
 	public static void main(String[] args) {
