@@ -18,6 +18,6 @@ public interface IVehiculo {
 
 	void frenar(int decrementoVel);
 
-	void apagar();
+	void apagar() throws Exception;
 
 }
