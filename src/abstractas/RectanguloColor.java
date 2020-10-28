@@ -6,7 +6,7 @@ public class RectanguloColor extends Rectangulo {
 
 	@Override
 	void dibujar() {
-		System.out.println("dinujo un rectangulo del color" + color);
+		System.out.println("dibujo un rectangulo del color" + color);
 
 	}
 

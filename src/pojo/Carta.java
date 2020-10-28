@@ -2,18 +2,20 @@ package pojo;
 
 public class Carta {
 
+	private Palo palo;
 	private int numero;
-	private String palo;
 
-	public Carta() {
+	public Carta(Palo palo, int numero) {
 		super();
-		this.numero = 0;
-		this.palo = "";
+		this.palo = palo;
+		this.numero = numero;
 	}
 
-	public Carta(int numero, String palo) {
-		super();
-		this.numero = numero;
+	public Palo getPalo() {
+		return palo;
+	}
+
+	public void setPalo(Palo palo) {
 		this.palo = palo;
 	}
 
@@ -25,17 +27,9 @@ public class Carta {
 		this.numero = numero;
 	}
 
-	public String getPalo() {
-		return palo;
-	}
-
-	public void setPalo(String palo) {
-		this.palo = palo;
-	}
-
 	@Override
 	public String toString() {
-		return "Carta [numero=" + numero + ", palo=" + palo + "]";
+		return "Carta [palo=" + palo + ", numero=" + numero + "]";
 	}
 
 }
