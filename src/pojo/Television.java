@@ -10,7 +10,7 @@ public class Television extends Electrodomesticos {
 
 	}
 
-	// canstructor sobrescrito con los atributos del padre y los propios de esta
+	// constructor sobrescrito con los atributos del padre y los propios de esta
 	// clase
 	public Television(String nombre, int precio, int pulgadas) {
 		// el super debe llevar los atributos del padre
