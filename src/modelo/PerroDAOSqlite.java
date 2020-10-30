@@ -97,7 +97,6 @@ public class PerroDAOSqlite implements PerroDao {
 			pst.setBoolean(4, p.isVacunado());
 			pst.setString(5, p.getHistoria());
 			pst.setInt(6, p.getId());
-
 		}
 
 		return perro;
