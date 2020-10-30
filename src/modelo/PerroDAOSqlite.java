@@ -98,8 +98,6 @@ public class PerroDAOSqlite implements PerroDao {
 			pst.setString(5, p.getHistoria());
 			pst.setInt(6, p.getId());
 
-			pst.executeUpdate(); // CUIDADO no usar executeQuery
-
 		}
 
 		return perro;
