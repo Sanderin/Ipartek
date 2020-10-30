@@ -10,19 +10,20 @@ public class Ejer1 {
 
 	public static void main(String[] args) throws SQLException {
 
-		Connection conn = DriverManager.getConnection("jdbc:sqlite:D:/sqlite/concesionario.db");
-
 		String sql = "SELECT * FROM coche;";
-		PreparedStatement pst = conn.prepareStatement(sql);
-		ResultSet rs = pst.executeQuery();
 
-		while (rs.next()) {
-			System.out.println(rs.getInt("id") + " " + rs.getString("nombre"));
+		// todo lo que este dentro del try se cierra automaticamente al ser autoClosable
+		try (Connection conn = DriverManager.getConnection("jdbc:sqlite:D:/sqlite/concesionario.db");
+				PreparedStatement pst = conn.prepareStatement(sql);
+				ResultSet rs = pst.executeQuery();) {
 
-		}
+			while (rs.next()) {
+				System.out.println(rs.getInt("id") + " " + rs.getString("nombre"));
+
+			}
+		} // fin try, se cierran las conexiones
 
 		System.out.println("terminamos");
-
 	}
 
 }
