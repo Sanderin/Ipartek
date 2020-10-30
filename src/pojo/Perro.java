@@ -1,34 +1,46 @@
 package pojo;
 
 public class Perro extends Mamifero {
-	// atributos
+
+	// Atributos, deben ser siempre privados
+	// la forma de manipular estos atributos es a traves de los getteres y settres
+	///////////////////////////////////////
 	private int id;
 	private String raza;
 	private float peso;
-	private boolean vacunado;
+	private boolean isVacunado;
 	private String historia;
 
-	// constructores
-
+	// Constructores
+	///////////////////////////////////////
 	public Perro() {
-		super("sin nombre");
+		super("Sin nombre");
 		this.id = 0;
-		this.raza = "cruce";
+		this.raza = "Cruce";
 		this.peso = 0f;
-		this.vacunado = false;
-		this.historia = "";
+		this.isVacunado = false;
+		this.historia = "Erase una vez....";
 	}
+
+	// otro constructor sobrecargado
 
 	public Perro(String nombre) {
-		super("sin nombre");
+		super(nombre);
 		this.id = 0;
-		this.raza = "cruce";
+		this.raza = "Cruce";
 		this.peso = 0f;
-		this.vacunado = false;
-		this.historia = "";
+		this.isVacunado = false;
+		this.historia = "Erase una vez....";
 	}
 
-//getters y setters
+	public Perro(String nombre, String raza, float peso) {
+		this(nombre);
+		this.raza = raza;
+		this.peso = peso;
+	}
+
+	// Getters y setters
+	///////////////////////////////////////
 
 	public String getRaza() {
 		return raza;
@@ -39,24 +51,23 @@ public class Perro extends Mamifero {
 	}
 
 	public float getPeso() {
-		if (peso < 0) {
-			peso = 0;
-			return peso;
-		} else {
-			return peso;
-		}
+		return peso;
 	}
 
 	public void setPeso(float peso) {
-		this.peso = peso;
+		if (peso < 0) {
+			this.peso = 0;
+		} else {
+			this.peso = peso;
+		}
 	}
 
 	public boolean isVacunado() {
-		return vacunado;
+		return isVacunado;
 	}
 
-	public void setVacunado(boolean vacunado) {
-		this.vacunado = vacunado;
+	public void setVacunado(boolean isVacunado) {
+		this.isVacunado = isVacunado;
 	}
 
 	public String getHistoria() {
@@ -77,8 +88,10 @@ public class Perro extends Mamifero {
 
 	@Override
 	public String toString() {
-		return "Perro [id=" + id + ", raza=" + raza + ", peso=" + peso + ", vacunado=" + vacunado + ", historia="
+		return "Perro [id=" + id + ", raza=" + raza + ", peso=" + peso + ", isVacunado=" + isVacunado + ", historia="
 				+ historia + ", getNombre()=" + getNombre() + ", getPatas()=" + getPatas() + "]";
 	}
+
+	// Otros metodos
 
 }

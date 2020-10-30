@@ -3,7 +3,8 @@ package apps;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import modelo.PerroDaoArrayList;
+import modelo.PerroDAOSqlite;
+import modelo.PerroDao;
 import pojo.Perro;
 
 /**
@@ -17,7 +18,8 @@ public class AppPerrera {
 	// variables globales para esta Clase TODO hacer privadas
 
 	static Scanner sc = null; // datos introducidos por teclado
-	static private PerroDaoArrayList modelo = new PerroDaoArrayList();
+
+	static private PerroDao modelo = new PerroDAOSqlite();
 	static ArrayList<Perro> lista = new ArrayList<Perro>(); // lista de perros
 	static String opcion = ""; // opcion seleccionada en el menu por el usuario
 	static final String LISTAR = "1", CREAR = "2", BAJA = "3", CAMBIAR = "4", VACUNA = "5", SALIR = "s"; // opciones del
