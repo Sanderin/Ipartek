@@ -17,7 +17,7 @@ public class Ejer1 {
 		ResultSet rs = pst.executeQuery();
 
 		while (rs.next()) {
-			System.out.println(rs.getInt("id") + rs.getString("nombre"));
+			System.out.println(rs.getInt("id") + " " + rs.getString("nombre"));
 
 		}
 
