@@ -7,198 +7,136 @@ import modelo.PerroDAOSqlite;
 import modelo.PerroDao;
 import pojo.Perro;
 
-/**
- * aplicacion para una perrera
- * 
- * @author Alexander Saiz
- *
- */
-
 public class AppPerrera {
-	// variables globales para esta Clase TODO hacer privadas
 
-	static Scanner sc = null; // datos introducidos por teclado
-
+	// variables globales para esta Clase
+	static private Scanner sc = null;
 	static private PerroDao modelo = new PerroDAOSqlite();
-	static ArrayList<Perro> lista = new ArrayList<Perro>(); // lista de perros
-	static String opcion = ""; // opcion seleccionada en el menu por el usuario
-	static final String LISTAR = "1", CREAR = "2", BAJA = "3", CAMBIAR = "4", VACUNA = "5", SALIR = "s"; // opciones del
-																											// menu
-	static boolean salir = false;
+	static private String opcion = ""; // opcion seleccionada en el menu por el usuario
 
-	// main TODO capturar excepciones
+	// opciones del menu
+	static final private String OP_LISTAR = "1";
+	static final private String OP_CREAR = "2";
+	static final private String OP_ELIMINAR = "3";
+	static final private String OP_SALIR = "s";
+
 	public static void main(String[] args) {
 
-		System.out.println("***********  Bienvenido a PerroComponentes  **************");
-		System.out.println("");
+		System.out.println("***********  APP  PERRERA   **************");
 		sc = new Scanner(System.in);
-		incializarDatos();
+		boolean salir = false;
 
 		do {
+
 			pintarMenu();
 
 			switch (opcion) {
-			case LISTAR:
+			case OP_LISTAR:
 				listar();
 				break;
+			case OP_CREAR:
+				crear();
+				break;
 
-			case CREAR:
-				crearPerro();
-				break;
-			case BAJA:
-				darBaja();
-				break;
-			case CAMBIAR:
-				cambiarPerro();
-				break;
-			case VACUNA:
-				vacunados();
-				break;
-			case SALIR:
+			case OP_SALIR:
+				salir = true;
+				System.out.println("***********  ADIOS, nos vemos pronto   **************");
 				break;
 
 			default:
-				System.out.println("introduce una opcion valida");
+				System.out.println(" ** por favor selecciona una opción valida ** ");
 				break;
 			}
 
-		} while (!SALIR.equalsIgnoreCase(opcion));
+		} while (!salir);
 
-		System.out.println("*************************  FIN  **************************");
 		sc.close();
 
-	}// fin main
+	}// main
 
-	private static void vacunados() {
-		for (Perro perro : lista) {
-			if (perro.isVacunado()) {
-				System.out.println("El perro " + perro.getNombre() + " esta vacunado");
+	private static void crear() {
 
-			} else {
-				System.out.println("El perro " + perro.getNombre() + " no esta vacunado");
+		// pedido datos por consola
+		System.out.println("Dime el nombre:");
+		String nombre = sc.nextLine();
+
+		System.out.println("raza (si no la sabes es 'cruce'):");
+		String raza = sc.nextLine(); // controlamos en el setter que si es vacia nos ponga 'cruce'
+
+		boolean isError = true;
+		float peso = 0;
+		do {
+			try {
+				System.out.println("Peso en Kg:");
+				peso = Float.parseFloat(sc.nextLine());
+				isError = false;
+			} catch (Exception e) {
+				System.out.println("No es un peso adecuado, por favor escribe un numero y usa puntos en vez de comas");
 			}
+		} while (isError);
 
-		}
+		System.out.println("¿ Esta vacunado ?  [Si/No]");
+		boolean isVacunado = ("s".equalsIgnoreCase(sc.nextLine())) ? true : false;
+
+		System.out.println("Cuentame su historia (no es obligatorio):");
+		String historia = sc.nextLine();
+
+		// crear un Perro y setear valores
+		Perro pNuevo = new Perro(nombre, raza, peso);
+		pNuevo.setVacunado(isVacunado);
+		pNuevo.setHistoria(historia);
+
+		// llamar al modelo para guardar en la bbdd
+		isError = true;
+		do {
+
+			try {
+				modelo.crear(pNuevo);
+				System.out.println("Perro guardado");
+				System.out.println(pNuevo);
+				isError = false;
+
+			} catch (Exception e) {
+				System.out.println("** No se ha podido guardar el perro, el nombre ya existe, por favor dime otro");
+				nombre = sc.nextLine();
+				pNuevo.setNombre(nombre);
+				// e.printStackTrace();
+			}
+		} while (isError);
+
 	}
 
-	// cambiarPerro
-	private static void cambiarPerro() {
-		String nombre = "";
-		String nombreNuevo = "";
-		System.out.println("introduce el nombre del perro que quieres cambiar");
-		nombre = sc.nextLine();
-
-		System.out.println("introduce el nuevo nombre del perro");
-		nombreNuevo = sc.nextLine();
-
-		/*
-		 * recorremos la lista comprobando si el nombre introducido coincide con alguno
-		 * de la lista
-		 */
-		if (!nombreNuevo.equals("")) {
-
-			for (Perro perro : lista) {
-				String p = perro.getNombre();
-
-				// si el nombre coincide cambiamos el nombre del bicho
-				if (p.equalsIgnoreCase(nombre)) {
-					perro.setNombre(nombreNuevo);
-					break;
-				}
-			}
-
-		} else {
-			System.out.println("debes introducir un nombre nuevo");
-			System.out.println("");
-		}
-
-	}// fin cambiarPerro
-
-	// dar baja a un perro FUNCIONA
-	private static void darBaja() {
-		String nombre = "";
-
-		System.out.println("introduce el nombre del perro que quieres dar de baja");
-		nombre = sc.nextLine();
-
-		/*
-		 * recorremos la lista comprobando si el nombre introducido coincide con alguno
-		 * de la lista
-		 */
-		for (Perro perro : lista) {
-			String p = perro.getNombre();
-
-			// si el nombre coincide eliminamos el perro de la lista y salimos del bucle
-			if (p.equalsIgnoreCase(nombre)) {
-				lista.remove(perro);
-				break;
-			}
-		}
-	}// fin darBaja
-
-	// funcion para crear perros y añadirlos a la lista FUNCIONA
-	private static void crearPerro() {
-
-		String nombre = "", raza = "";
-
-		System.out.println("introduce el nombre del perro");
-		nombre = sc.nextLine();
-
-		System.out.println("introduce la raza del perro");
-		raza = sc.nextLine();
-
-		if (!nombre.equals("") || !raza.equals("")) {
-			Perro p = new Perro(nombre);
-			p.setNombre(nombre);
-			p.setRaza(raza);
-			lista.add(p);
-		} else {
-			System.out.println("debes introducir tanto el nombre como la raza del perro");
-			System.out.println("");
-		}
-		/*
-		 * for (Perro perro : lista) { System.out.println(perro.getNombre() + " " +
-		 * perro.getRaza());
-		 */
-
-	}// fin crearPerro
-
-	// funcion para listar, primera opcion del menu FUNCIONA
 	private static void listar() {
 
-		ArrayList<Perro> lista = modelo.listar();
-		for (Perro perro : lista) {
-			System.out.println(String.format("%15s [%s]  %s Kg", perro.getNombre(), perro.getRaza(), perro.getPeso()));
+		// TODO ver como dar una fixed lenght al String para nombre
+		ArrayList<Perro> perros = modelo.listar();
+		for (Perro perro : perros) {
+			System.out.println(String.format("%15s [%s]  %4s Kg  %13s %s", perro.getNombre(), perro.getRaza(),
+					perro.getPeso(), (perro.isVacunado()) ? "vacunado" : "*Sin Vacunar*", perro.getHistoria()));
 		}
 
-	}// fin listar
+	}
 
-	// funcion para la inicializacion de datos FUNCIONA
-	private static void incializarDatos() {
-
-		lista.add(new Perro("kiss"));
-		lista.add(new Perro("pretty"));
-		lista.add(new Perro("megatron"));
-		lista.add(new Perro("rex"));
-
-	}// fin inicializarDatos
-
-	// funcion para crear el menu de seleccion
+	/**
+	 * Se encraga de pintar las pociones del menu.<br>
+	 * Fijaros que no aparece {@code @return} porque no retorna nada {@code void}
+	 * 
+	 */
 	private static void pintarMenu() {
 
 		System.out.println("************************************");
-		System.out.println(LISTAR + " - Lista de todos los perros");
-		System.out.println(CREAR + " - Crear un perro");
-		System.out.println(BAJA + " - Dar de baja un Perro");
-		System.out.println(CAMBIAR + " - Cambiar nombre del perro");
-		System.out.println(VACUNA + " - Comprobar si esta vacunado");
-		System.out.println("s - Salir");
+		System.out.println(" " + OP_LISTAR + ".- Listar todos los perros");
+		System.out.println(" " + OP_CREAR + ".- Crear un perro");
+		System.out.println(" " + OP_ELIMINAR + ".- Dar de baja un Perro");
+		System.out.println(" etc etc ...");
+		System.out.println(" ");
+		System.out.println(" " + OP_SALIR + " - Salir");
 		System.out.println("************************************");
 
 		System.out.println("\n Selecciona una opcion del menu:");
 		// TODO gestionar errores
 		opcion = sc.nextLine();
 
-	}// fin pintar menu
+	}
 
 }// AppPerrera
