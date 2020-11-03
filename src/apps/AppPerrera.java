@@ -11,7 +11,7 @@ public class AppPerrera {
 
 	// variables globales para esta Clase
 	static private Scanner sc = null;
-	static private PerroDao modelo = new PerroDAOSqlite();
+	static private PerroDao modelo = PerroDAOSqlite.getInstance();
 	static private String opcion = ""; // opcion seleccionada en el menu por el usuario
 
 	// opciones del menu

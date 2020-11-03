@@ -11,6 +11,13 @@ import pojo.Perro;
 public class PerroDAOSqlite implements PerroDao {
 
 	private static final String PATH = "ddbb/perrera.db";
+	private static PerroDAOSqlite INSTANCE = null;
+
+	// constructor privado para el singleton
+	private PerroDAOSqlite() {
+		super();
+
+	}// fin constructor
 
 	@Override
 	public ArrayList<Perro> listar() {
@@ -145,6 +152,13 @@ public class PerroDAOSqlite implements PerroDao {
 			e.printStackTrace();
 		}
 		return resultado;
+	}
+
+	public synchronized static PerroDAOSqlite getInstance() {
+		if (INSTANCE == null) {
+			INSTANCE = new PerroDAOSqlite();
+		}
+		return INSTANCE;
 	}
 
 }

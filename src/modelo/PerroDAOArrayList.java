@@ -7,6 +7,12 @@ import pojo.Perro;
 public class PerroDAOArrayList implements PerroDao {
 
 	private ArrayList<Perro> lista = new ArrayList<Perro>();
+	private static PerroDAOArrayList INSTANCE = null;
+
+	// constructor privado para el singleton
+	private PerroDAOArrayList() {
+		super();
+	}// fin constructor
 
 	@Override
 	public ArrayList<Perro> listar() {
@@ -46,4 +52,11 @@ public class PerroDAOArrayList implements PerroDao {
 		return false;
 	}
 
+	public synchronized static PerroDAOArrayList getInstance() {
+		if (INSTANCE == null) {
+			INSTANCE = new PerroDAOArrayList();
+		}
+		return INSTANCE;
+
+	}
 }

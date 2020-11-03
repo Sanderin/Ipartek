@@ -7,9 +7,8 @@ import java.util.ArrayList;
  * hemos usado una P de Pojo
  * 
  * @author ur00
- *
  */
-public interface IDao<P> {
+public interface IDao<P> extends Singleton {
 
 	/**
 	 * lista de pojos
