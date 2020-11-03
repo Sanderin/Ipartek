@@ -6,9 +6,11 @@ public class Gato extends Mamifero {
 		super(nombre);
 	}
 
+	// sobreescribimos al padre que es Mamifero
+	// hemos puesto un atributo a 'protected' y para el otro usamos el getters
 	@Override
 	public String toString() {
-		return "Gato [nombre = " + getNombre() + ", patas = " + getPatas() + "]";
+		return "Gato [nombre=" + nombre + ", patas=" + getPatas() + "]";
 	}
 
 }

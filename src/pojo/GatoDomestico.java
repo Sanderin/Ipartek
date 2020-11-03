@@ -29,7 +29,7 @@ public class GatoDomestico extends Gato {
 
 	@Override
 	public String toString() {
-		return super.toString() + " GatoDomestico [vacunado = " + vacunado + ", castrado = " + castrado + "]";
+		return super.toString() + " GatoDomestico [vacunado=" + vacunado + ", castrado=" + castrado + "]";
 	}
 
 }

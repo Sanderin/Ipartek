@@ -2,17 +2,14 @@ package pojo;
 
 public class TelevisionPlana extends Television {
 
-	String tipoPantalla;
+	private String tipoPantalla;
 
-	public TelevisionPlana(String nombre) {
-		super(nombre);
-		this.tipoPantalla = "plana";
+	public TelevisionPlana() {
+		super();
+		this.tipoPantalla = "tft";
 	}
 
-	// constructor sobreescrito con los atributos de electrodomesticos, television y
-	// los propios
 	public TelevisionPlana(String nombre, int precio, int pulgadas, String tipoPantalla) {
-		// el super debe llevar los atributos del padre, del abuelo etc
 		super(nombre, precio, pulgadas);
 		this.tipoPantalla = tipoPantalla;
 	}
@@ -27,7 +24,8 @@ public class TelevisionPlana extends Television {
 
 	@Override
 	public String toString() {
-		return super.toString() + " TelevisionPlana [tipoPantalla = " + tipoPantalla + "]";
+		return "TelevisionPlana [tipoPantalla=" + tipoPantalla + ", getPulgadas()=" + getPulgadas() + ", getNombre()="
+				+ getNombre() + ", getPrecio()=" + getPrecio() + "]";
 	}
 
 }

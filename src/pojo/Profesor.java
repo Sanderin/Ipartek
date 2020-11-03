@@ -1,14 +1,15 @@
 package pojo;
 
 public class Profesor extends Persona {
-	String claseImpartida;
 
-	public String getClaseImpartida() {
-		return claseImpartida;
+	private String asignatura;
+
+	public String getAsignatura() {
+		return asignatura;
 	}
 
-	public void setClaseImpartida(String claseImpartida) {
-		this.claseImpartida = claseImpartida;
+	public void setAsignatura(String asignatura) {
+		this.asignatura = asignatura;
 	}
 
 }

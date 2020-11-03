@@ -1,14 +1,14 @@
 package pojo;
 
+/**
+ * Cuando extendemos de una Clase, heredemos todos sus metodos y atributos
+ * 
+ * @author ur00
+ *
+ */
 public class Estudiante extends Persona {
 
-	/**
-	 * Cuando extendemos de una clase heredamos todos sus metodos y atributos
-	 * 
-	 * @param args
-	 */
-
-	float notaMedia;
+	private float notaMedia;
 
 	public float getNotaMedia() {
 		return notaMedia;

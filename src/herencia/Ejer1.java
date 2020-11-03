@@ -21,7 +21,7 @@ public class Ejer1 {
 		// crear profesor bacterio
 		pro.setEdad(70);
 		pro.setNombre("Bacterio");
-		pro.setClaseImpartida("cencia avanzada");
+		pro.setAsignatura("cencia avanzada");
 
 		Gato gato = new Gato("Garfiled");
 		System.out.println(gato);
