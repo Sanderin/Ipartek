@@ -43,14 +43,17 @@ public class EjemploHashMap {
 		// definir una hashamp con perros la key será su id(int) y el value(Perro)
 		HashMap<Integer, Perro> hmPerros = new HashMap<Integer, Perro>();
 
-		Perro p1 = new Perro("kiss");
-		Perro p2 = new Perro("pretty");
-		Perro p3 = new Perro("snoopy");
+		Perro p1 = new Perro("kiss", "cruce", 3);
+		Perro p2 = new Perro("pretty", "labrador", 10);
+		Perro p3 = new Perro("snoopy", "setter", 2);
+		p1.setId(12);
+		p2.setId(24);
+		p3.setId(56);
 
 		// meter 2 perros
-		hmPerros.put(p1.getId(), p1);
-		hmPerros.put(p2.getId(), p2);
-		hmPerros.put(p3.getId(), p3);
+		hmPerros.put(12, p1);
+		hmPerros.put(24, p2);
+		hmPerros.put(56, p3);
 
 		// obtener todas las Keys
 		Set<Integer> keys2 = hmPerros.keySet();
@@ -61,8 +64,8 @@ public class EjemploHashMap {
 		// recorrer con un Iterator
 		for (Iterator<Integer> it2 = hmPerros.keySet().iterator(); it2.hasNext();) {
 			Integer key2 = it2.next();
-			Perro value = (Perro) hmPerros.get(key2);
-			System.out.println("ID: " + key2 + " - " + "Perro: " + value);
+			Perro value2 = hmPerros.get(key2);
+			System.out.println("ID: " + key2 + " - " + "Perro: " + value2);
 		}
 	}
 
