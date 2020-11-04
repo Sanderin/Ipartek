@@ -1,7 +1,9 @@
 package mf0227;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 public class ImplementarDao implements LibroDao, SingletonEntrega {
@@ -28,24 +30,41 @@ public class ImplementarDao implements LibroDao, SingletonEntrega {
 	@Override
 	public Libro getById(int id) {
 
-		return null;
+		hmLibros.get(id);
+		return (Libro) hmLibros.keySet();
 	}
 
 	@Override
 	public boolean delete(int id) {
 
+		if (hmLibros.containsKey(id)) {
+			hmLibros.remove(id);
+			return true;
+		}
 		return false;
 	}
 
 	@Override
 	public boolean insert(Libro l) {
-
+		Collection<Libro> valores = hmLibros.values();
 		// comprobar que el nombre no existe
+		boolean encontrado = false;
+		for (Iterator<Integer> it = hmLibros.keySet().iterator(); it.hasNext();) {
+			Integer clave = it.next();
+			Libro valor = hmLibros.get(clave);
 
-		l.setId(indice);
-		hmLibros.put(indice, l);
-		indice++;
-
+			if (l.getNombre().equals(valor.getNombre())) {
+				encontrado = true;
+				System.out.println("no puedes añadir un libro con el mismo nombre");
+				break;
+			}
+		}
+		if (!encontrado) {
+			l.setId(indice);
+			hmLibros.put(indice, l);
+			indice++;
+			return true;
+		}
 		return false;
 	}
 

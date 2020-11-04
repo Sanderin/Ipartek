@@ -23,6 +23,12 @@ public class Libro {
 		this.paginas = paginas;
 	}
 
+	public Libro(String nombre, int paginas) {
+		super();
+		this.nombre = nombre;
+		this.paginas = paginas;
+	}
+
 	public int getId() {
 		return id;
 	}
