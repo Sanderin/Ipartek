@@ -3,7 +3,7 @@ package apps;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import modelo.PerroDAOSqlite;
+import modelo.PerroDAOArrayList;
 import modelo.PerroDao;
 import pojo.Perro;
 
@@ -11,7 +11,8 @@ public class AppPerrera {
 
 	// variables globales para esta Clase
 	static private Scanner sc = null;
-	static private PerroDao modelo = PerroDAOSqlite.getInstance();
+	// static private PerroDao modelo = PerroDAOSqlite.getInstance();
+	static private PerroDao modelo = PerroDAOArrayList.getInstance();
 	static private String opcion = ""; // opcion seleccionada en el menu por el usuario
 
 	// opciones del menu

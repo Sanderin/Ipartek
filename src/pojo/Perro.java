@@ -35,6 +35,11 @@ public class Perro extends Mamifero {
 		this.historia = "Erase una vez....";
 	}
 
+	public Perro(int id, String nombre) {
+		super(nombre);
+		this.id = id;
+	}
+
 	public Perro(String nombre, String raza, float peso) {
 		this(nombre);
 		// CUIDADO si tienen algo espcial los settres usarlos

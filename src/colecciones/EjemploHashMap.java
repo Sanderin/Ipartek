@@ -67,6 +67,7 @@ public class EjemploHashMap {
 			Perro value2 = hmPerros.get(key2);
 			System.out.println("ID: " + key2 + " - " + "Perro: " + value2);
 		}
+
 	}
 
 }
