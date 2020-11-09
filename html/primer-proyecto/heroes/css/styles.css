@@ -1,0 +1,50 @@
+/* hoja de estilos css heroes*/
+
+@import 'reset.css';
+/*resetear los estilos que le dan los navegadores*/
+*
+{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/*variables globales*/
+:root
+{
+    --blanco: #FFF;
+    --marron:chocolate;
+    --azul:rgb(144, 173, 226);
+    --gris: darkgray;
+    --negro: black;
+}
+
+header
+{
+    /*background-color: var(--marron);*/
+    /*dependiendo de los navegadores algunos prefijos pueden variar*/
+    color: white;
+    background-image: linear-gradient(top, orange 20% , yellow 60%);
+    background-image: -o-linear-gradient(top, orange 20% , yellow 60%);
+    background-image: -moz-linear-gradient(top, orange 20% , yellow 60%);
+    background-image: -ms-linear-gradient(top, orange 20% , yellow 60%);
+    background-image: -webkit-linear-gradient(top, orange 20% , yellow 60%);
+    color: var(--blanco);
+}
+
+section
+{
+    max-width: 1024px;
+    margin: 0 auto;
+    background-color:var(--azul);
+}
+
+footer
+{
+    background-color:var(--gris);
+}
+h1
+{
+    text-align: center;
+    text-transform: capitalize;
+}

@@ -1,0 +1,116 @@
+/* hoja de estilos css prueba*/
+
+/*@import 'reset.css';*/
+/*resetear los estilos que le dan los navegadores*/
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+/*variables globales*/
+:root
+{
+    --marron:chocolate;
+    --azul:rgb(144, 173, 226);
+    --gris: darkgray;
+    --negro: black;
+}
+
+header
+{
+    /*background-color: var(--marron);*/
+    /*dependiendo de los navegadores algunos prefijos pueden variar*/
+    color: chartreuse;
+    background-image: linear-gradient(top, blue 100%,purple 60%);
+    background-image: -webkit-linear-gradient(top, blue 2%,blueviolet 80%);
+}
+
+body
+{
+    background-color: blueviolet;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 2;
+}
+
+section
+{
+    max-width: 1024px;
+    margin: 0 auto;
+    background-color:var(--azul);
+}
+
+footer
+{
+    color: white;
+    /*background-color:purple;*/
+    background-image: -webkit-linear-gradient(top, blueviolet 2%,blue 80%);
+}
+
+h1, h2, h3, h4
+{
+    color: chartreuse;
+}
+
+p
+{
+    color: white;
+}
+
+p span /*selector de etiqueta*/
+{
+    font-weight: 600;
+}
+
+a
+{
+    color: turquoise;
+}
+
+table
+{
+    color: violet;
+}
+
+ul
+{
+    color: yellow;
+}
+
+ol
+{
+    color: aquamarine;
+}
+
+.subrayado /* selector por una clase que se puede usar en cualquier etiqueta*/
+{
+    background-color: yellow;
+    color: var(--negro);
+}
+#unico/*selector por id*/
+{
+    background-color: blueviolet;
+}
+
+#intro
+{
+    color:chartreuse;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -.015em;
+    line-height: 1.04;
+    margin-bottom: 0;
+    word-spacing: -.02em;
+    margin-top: 0;
+    box-sizing: border-box;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    overflow-wrap: break-word;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif;
+    -webkit-tap-highlight-color: rgba(11,12,12,0);
+    box-sizing: border-box;
+    box-sizing: border-box;
+}

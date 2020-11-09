@@ -56,6 +56,9 @@ public class PerroDAOSqlite implements PerroDao {
 		try (Connection conn = DriverManager.getConnection("jdbc:sqlite:" + PATH);
 				PreparedStatement pst = conn.prepareStatement(SQL);) {
 
+			// sacar traza
+			System.out.println(pst);
+
 			pst.setInt(1, id); // sustituimos el 1º ? de la SQL por el parametro id
 
 			try (ResultSet rs = pst.executeQuery()) {
