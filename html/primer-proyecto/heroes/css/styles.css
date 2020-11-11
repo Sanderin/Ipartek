@@ -1,50 +1,228 @@
 /* hoja de estilos css heroes*/
 
 @import 'reset.css';
+/*variables globales*/
+:root
+{
+    --color-primario:#ec1d24;
+    --color-secundario: #202020;
+    --color-acentuado: #b92126c0;
+    --blanco:#fefefe;
+    --gris-claro:#f7f7f7;
+    --negro: black;
+    --azul:#003580;
+   
+}
 /*resetear los estilos que le dan los navegadores*/
 *
 {
     margin: 0;
     padding: 0;
-    text-align: center;
 }
 
-/*variables globales*/
-:root
+/*dar estilos a todas las etiquetas*/
+body
 {
-    --blanco: #FFF;
-    --marron:chocolate;
-    --azul:rgb(144, 173, 226);
-    --gris: darkgray;
-    --negro: black;
+    
+    background-color: var(--blanco);
+    color: var(--negro);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.3rem;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+    box-sizing: border-box; /* si tenemos bordes o padding lo descuenta del ancho*/
 }
 
-header
+p
 {
-    /*background-color: var(--marron);*/
-    /*dependiendo de los navegadores algunos prefijos pueden variar*/
-    color: white;
-    background-image: linear-gradient(top, orange 20% , yellow 60%);
-    background-image: -o-linear-gradient(top, orange 20% , yellow 60%);
-    background-image: -moz-linear-gradient(top, orange 20% , yellow 60%);
-    background-image: -ms-linear-gradient(top, orange 20% , yellow 60%);
-    background-image: -webkit-linear-gradient(top, orange 20% , yellow 60%);
-    color: var(--blanco);
+    padding: 15px;
 }
 
-section
+img
 {
-    max-width: 1024px;
-    margin: 0 auto;
-    background-color:var(--azul);
+    padding: 15px;
 }
 
-footer
+li
 {
-    background-color:var(--gris);
+    list-style: none; /*quitar el punto de la lista*/
+    margin-left: 15px;
 }
+
 h1
 {
     text-align: center;
     text-transform: capitalize;
+    padding-top: 5px;
+    margin: 15px;
+}
+
+h2, h3, h4, h5, h6
+{
+    color: var(--color-secundario);
+    padding-top: 10px;
+    margin: 15px;
+}
+
+
+header, main, footer
+{
+    max-width: 1024px;
+    margin: auto; /*centrar el contenido*/
+    
+  
+}
+
+header
+{
+    /*background-image: linear-gradient(top, orange 20% , yellow 60%);
+    background-image: -o-linear-gradient(top, orange 20% , yellow 60%);
+    background-image: -moz-linear-gradient(top, orange 20% , yellow 60%);
+    background-image: -ms-linear-gradient(top, orange 20% , yellow 60%);
+    background-image: -webkit-linear-gradient(top, orange 20% , yellow 60%);*/
+    background-color: var(--color-secundario);
+    color: var(--blanco);
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+nav
+{
+    background-color: var(--color-primario) ;
+    color: var(--blanco);
+    position: sticky;
+    top: 0px;
+}
+
+ a
+{
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav ul
+{
+    display: flex; /* posicionar los li en horizontal para dividir el espacio*/
+    border: 1px;
+    border-color: var(--negro);
+    justify-content: space-between;
+}
+
+nav ul li
+{
+    list-style: none; /*quitar el punto de la lista*/
+    text-align: center;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+nav ul li:hover
+{
+  background-color: var(--color-acentuado);
+}
+
+main
+{
+    padding: 1rem;
+}
+
+#fijo {
+    position: fixed;
+    bottom: 50px;
+    right: 30px;
+    background-color: var(--color-primario);
+    box-shadow: -8px 8px 10px -5px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: -8px 8px 10px -5px rgba(0, 0, 0, 0.75);
+    padding-top: 30px;
+    height: 35px;
+    width: 58px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#fijo a {
+    text-decoration: none;
+    font-size: 20px;
+    color: var(--blanco);
+    text-align: center;
+    width: 100%;
+    padding-left: 25%;
+    margin-top: 20px;
+    font-size: 4rem;
+}
+
+section
+{
+    margin-top: 15px;
+    background-color:var(--gris-claro);
+}
+
+footer
+{
+    background-color: var(--color-secundario);
+    
+}
+
+footer table
+{
+    width: 100%;
+
+}
+
+footer ul 
+{
+    display: flex; /* posicionar los li en horizontal para dividir el espacio*/
+    justify-content: space-between;
+    text-align: center;
+}
+
+footer ul li
+{
+    list-style: none; /*quitar el punto de la lista*/
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+footer a
+{
+    text-align: center;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 25px;
+    margin-right: 15px;
+}
+
+a
+{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.logo
+{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 25px;
+    margin-top: 5px;
+    width: 50px;
+    height: 50px;
+    
+}
+
+.comic
+{
+    width: 210px;
+    height: 360px;
+}
+
+.personaje
+{
+    width: 80px;
+    height: 60px;
 }
